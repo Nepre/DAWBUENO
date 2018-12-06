@@ -1,0 +1,189 @@
+*{
+    font-family: 'Josefine Sans', sans-serif;
+}
+
+/* header */
+header>div>h1>a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+body>header{
+  background-color: #efefef;
+}
+
+
+
+body>header>div>form{
+  text-align: right;
+
+
+}
+body>header>div>form>input{
+  width: 7em;
+}
+
+
+
+body{
+    background-color: #ffffff;
+}
+
+
+
+body>div>div>ul{
+  list-style: none;
+}
+
+
+
+/* NAVEGADOR */
+
+
+	body>header>div>nav>ul{
+		list-style: none;
+	}
+
+
+
+body>header>div>nav>ul>li>a{
+	font-size : 16px;
+	text-decoration: none;
+}
+
+body>header>div>nav>ul>li>a:hover {
+  font-weight: bold;
+}
+
+body>header>div>nav>ul>li>a:link {
+	color: black;
+}
+
+body>header>div>nav>ul>li>a:visited {
+	color: black;
+}
+
+
+/* FORMULARIOS */
+
+body>div>form{
+  font-size: 0.7em;
+}
+body>div>form>label{
+  color: black;
+}
+body>div>form>input[id="usu"]:hover{
+  background-color: #efefef;
+}
+body>div>form>input[id="usu"]:active{
+  background-color: #efefef;
+}
+body>div>form>input[id="usu"]:focus{
+  background-color: #efefef;
+}
+body>div>form>input[id="pwd"]:hover{
+  background-color: #efefef;
+}
+body>div>form>input[id="pwd"]:active{
+  background-color: #efefef;
+}
+body>div>form>input[id="pwd"]:focus{
+  background-color: #efefef;
+}
+body>div>form>a{
+    color: black;
+    text-decoration: none;
+}
+body>div>form>a:hover{
+      font-weight: bold;
+}
+
+#reg>input[type="text"]:hover{
+    background-color: #efefef;
+}
+#reg>input[type="text"]:active{
+    background-color: #efefef;
+}
+#reg>input[type="text"]:focus{
+    background-color: #efefef;
+}
+#reg>input[type="date"]:hover{
+    background-color: #efefef;
+}
+#reg>input[type="date"]:active{
+    background-color: #efefef;
+}
+#reg>input[type="date"]:focus{
+    background-color: #efefef;
+}
+
+#busc>form>p>input:hover{
+    background-color: #efefef;
+}
+#busc>form>p>input:active{
+    background-color: #efefef;
+}
+#busc>form>p>input:focus{
+    background-color: #efefef;
+}
+
+#formSolCheck>p>input:hover{
+    background-color: #efefef;
+}
+#formSolCheck>p>input:active{
+    background-color: #efefef;
+}
+#formSolCheck>p>input:focus{
+    background-color: #efefef;
+}
+
+
+body>form{
+  color: black;
+  text-decoration: none;
+}
+body>form>label{
+    color: black;
+}
+
+/* Footer*/
+
+footer{
+  background-color: #efefef;
+}
+
+body>footer>p{
+  margin-left: 2em;
+}
+
+body>footer{
+  overflow: hidden;
+  background-color: #efefef;
+  color: black;
+}
+
+/*Específicos*/
+
+#fotoEsp>ul>li{
+    list-style: none;
+}
+
+#login, #buscar, #reg{
+  font-size: 1em;
+}
+
+#solCheck>a{
+ text-decoration: none;
+ color: grey;
+}
+
+#remLab:hover{
+    font-weight: bold;
+}
+
+#login2{
+  text-align: center;
+  margin-left: 75%;
+}

@@ -1,0 +1,297 @@
+*{
+    font-family: 'Josefine Sans', sans-serif;
+}
+
+/* header */
+
+
+header>div>h1>a{
+
+  color: black;
+}
+
+
+body{
+    margin-left: 0%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+footer{
+  margin-left: -5%;
+}
+
+
+
+body>div>div>ul{
+  list-style: none;
+}
+
+
+
+/* NAVEGADOR */
+
+
+	body>header>div>nav>ul{
+		list-style: none;
+	}
+
+
+
+body>header>div>nav>ul>li>a{
+	font-size : 16px;
+
+}
+
+body>header>div>nav>ul>li>a:hover {
+  font-weight: bold;
+}
+
+body>header>div>nav>ul>li>a:link {
+	color: black;
+}
+
+body>header>div>nav>ul>li>a:visited {
+	color: black;
+}
+
+
+/* FORMULARIOS */
+
+body>div>form{
+  font-size: 12px;
+}
+body>div>form>label{
+  color: black;
+}
+body>div>form>input[id="usu"]:hover{
+  background-color: #efefef;
+}
+body>div>form>input[id="usu"]:active{
+  background-color: #efefef;
+}
+body>div>form>input[id="usu"]:focus{
+  background-color: #efefef;
+}
+body>div>form>input[id="pwd"]:hover{
+  background-color: #efefef;
+}
+body>div>form>input[id="pwd"]:active{
+  background-color: #efefef;
+}
+body>div>form>input[id="pwd"]:focus{
+  background-color: #efefef;
+}
+body>div>form>a{
+    color: black;
+
+}
+body>div>form>a:hover{
+      font-weight: bold;
+}
+
+#reg>input[type="text"]:hover{
+    background-color: #efefef;
+}
+#reg>input[type="text"]:active{
+    background-color: #efefef;
+}
+#reg>input[type="text"]:focus{
+    background-color: #efefef;
+}
+#reg>input[type="date"]:hover{
+    background-color: #efefef;
+}
+#reg>input[type="date"]:active{
+    background-color: #efefef;
+}
+#reg>input[type="date"]:focus{
+    background-color: #efefef;
+}
+
+#busc>form>p>input:hover{
+    background-color: #efefef;
+}
+#busc>form>p>input:active{
+    background-color: #efefef;
+}
+#busc>form>p>input:focus{
+    background-color: #efefef;
+}
+
+#formSolCheck>p>input:hover{
+    background-color: #efefef;
+}
+#formSolCheck>p>input:active{
+    background-color: #efefef;
+}
+#formSolCheck>p>input:focus{
+    background-color: #efefef;
+}
+
+
+body>form{
+  color: black;
+
+}
+body>form>label{
+    color: black;
+}
+
+/*Media queries*/
+
+
+@media screen and (max-width:1100px) {
+  #log, #busc{
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-height:940px) {
+  .push{
+    padding-top: 215px;
+  }
+
+  #log, #busc{
+    margin-left:25%;
+  }
+
+  #reg{
+    margin-left: 36%;
+  }
+
+  body>footer{
+    padding-bottom: 3em;
+    margin-bottom: -4em;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body>header{
+    padding-bottom: 1em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 1em;
+  }
+
+  #log, #busc{
+    margin-left:0%;
+  }
+  #reg{
+    margin-left: 15%;
+  }
+  #usuar{
+    margin-left: -35%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body>header{
+    padding-bottom: 2em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 2.1em;
+  }
+  #log, #busc{
+    margin-left:-30%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #log, #busc{
+    margin-left:-70%;
+  }
+}
+
+
+@media screen and (min-width: 1450px) {
+  .fotos{
+    margin-left: 30%;
+  }
+}
+
+@media screen and (min-width: 1850px) {
+  .fotos{
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body>header{
+    padding-bottom: 1em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 1em;
+  }
+
+  #log, #busc{
+    margin-left:0%;
+  }
+  #reg{
+    margin-left: 15%;
+  }
+  #usuar{
+    margin-left: -35%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body>header{
+    padding-bottom: 2em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 2.1em;
+  }
+  #log, #busc{
+    margin-left:-30%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #log, #busc{
+    margin-left:-70%;
+  }
+}
+
+/* Footer*/
+
+footer{
+  background-color: #efefef;
+}
+
+body>footer>p{
+  margin-left: 2em;
+}
+
+body>footer{
+  overflow: hidden;
+  background-color: #efefef;
+  color: black;
+}
+
+/*Específicos*/
+
+#reg>input, #login>input{
+  margin: 1em;
+}
+
+#fotoEsp>ul>li{
+    list-style: none;
+}
+
+#login, #buscar, #reg{
+  font-size: 14px;
+}
+
+#solCheck>a{
+
+ color: grey;
+}
+
+#menu{
+  display: none;
+}
+
+a{
+  font-weight: bold;
+}

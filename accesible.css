@@ -1,0 +1,442 @@
+/*FOCUS EN LOS BOTONES Y EN FOTOS padding */
+
+*{
+    font-family: 'Josefine Sans', sans-serif;
+    font-color: white;
+}
+
+body { color: white; }
+
+
+
+/* header */
+header>div>h1>a{
+  text-decoration: underline;
+  color: white;
+}
+
+
+
+body>header{
+  text-align: center;
+  background-color: black;
+  width: 100%;
+  margin-top: -0.5em;
+  padding-top: 0.5em;
+  margin-left: -0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+
+}
+
+
+
+body>header>div>form{
+  font-size: 1em;
+  text-align: right;
+
+
+}
+body>header>div>form>input{
+  width: 7em;
+  margin: 0.1em;
+}
+
+/* Media queries */
+
+.push {
+    padding-top: 50px;
+}
+
+.general{
+  padding-top: 3em;
+  margin-left: 34%;
+  text-align: center;
+}
+
+#usuar{
+  text-align: center;
+}
+
+
+@media screen and (max-width:1100px) {
+  #log, #busc{
+    margin-left:100%;
+  }
+}
+
+@media screen and (max-height:940px) {
+  .push{
+    padding-top: 215px;
+  }
+
+  #log, #busc{
+    margin-left:30%;
+  }
+
+  #reg{
+    margin-left: 36%;
+  }
+
+  body>footer{
+    padding-bottom: 3em;
+    margin-bottom: -4em;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  body>header{
+    padding-bottom: 1em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 1em;
+  }
+
+  #log, #busc{
+    margin-left:0%;
+  }
+  #reg{
+    margin-left: 15%;
+  }
+  #usuar{
+    margin-left: -35%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  body>header{
+    padding-bottom: 2em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 2.1em;
+  }
+  #log, #busc{
+    margin-left:-30%;
+  }
+}
+
+
+
+/*Div principal*/
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body{
+    background-color: #111111;
+    overflow: scroll;
+}
+
+body>header{
+  text-align: center;
+}
+
+body>main>div{
+  padding-top: 2em;
+  display: inline-block;
+  text-align: left;
+}
+
+body>main>div>div{
+  width: 30em;
+  float: left;
+  text-align: left;
+}
+
+body>main>div>div>ul{
+  list-style: none;
+}
+
+
+body>main>table{
+  width: 40%;
+  margin: 10px auto;
+}
+
+body>main>div>div>a:hover{
+  border: 5px solid yellow;
+}
+
+body>main>div>div>div>img:hover{
+  border: 5px solid yellow;
+}
+
+
+
+/* NAVEGADOR */
+
+body>header>div>nav{
+  color: white;
+	overflow: hidden;
+}
+
+	body>header>div>nav>ul{
+    min-height: 25px;
+		list-style: none;
+		padding: 0;
+		margin: auto;
+		text-align: center;
+    max-height: 1.5em;
+    overflow: hidden;
+	}
+
+
+		body>header>div>nav>ul>li{
+			display: inline-block;
+		}
+
+			body>header>div>nav>ul>li>a{
+    			display: block;
+    			padding: 0.2em, 0.4em;
+    			margin-right : auto;
+    			width : 140px;
+    			font-size : 20px;
+    			line-height : 20px;
+    			text-align : center;
+    			text-decoration: underline;
+			}
+
+				body>header>div>nav>ul>li>a:hover {
+          font-weight: bold;
+				}
+
+				body>header>div>nav>ul>li>a:link {
+					color: yellow;
+				}
+
+				body>header>div>nav>ul>li>a:visited {
+					color: yellow;
+				}
+
+
+/* FORMULARIOS */
+
+body>main>div>form{
+  font-size: 1em;
+  text-align: right;
+}
+body>main>div>form>label{
+  color: white;
+}
+body>main>div>form>input[id="usu"]:hover{
+  background-color: yellow;
+}
+body>main>div>form>input[id="usu"]:active{
+  background-color: yellow;
+}
+body>main>div>form>input[id="usu"]:focus{
+  background-color: yellow;
+}
+body>main>div>form>input[id="pwd"]:hover{
+  background-color: yellow;
+}
+body>main>div>form>input[id="pwd"]:active{
+  background-color: yellow;
+}
+body>main>div>form>input[id="pwd"]:focus{
+  background-color: yellow;
+}
+body>main>div>form>input:hover{
+  background-color: yellow;
+}
+body>main>div>form>input:focus{
+  background-color: yellow;
+}
+body>main>div>input[type="submit"]:hover{
+  background-color: yellow;
+}
+body>main>div>input[type="submit"]:focus{
+  background-color: yellow;
+}
+body>main>div>form>input{
+  width: 7em;
+}
+body>main>div>div>div>p>button:hover{
+  background-color: yellow;
+}
+body>main>div>div>div>p>button:focus{
+  background-color: yellow;
+}
+body>main>div>div>div>form>input:hover{
+  background-color: yellow;
+}
+body>main>div>div>div>form>input:focus{
+  background-color: yellow;
+}
+body>main>div>form>a{
+    color: yellow;
+    text-decoration: underline;
+}
+body>main>div>form>a:hover{
+      font-weight: bold;
+}
+
+#reg>input[type="text"]:hover{
+    background-color: yellow;
+}
+#reg>input[type="text"]:active{
+    background-color: yellow;
+}
+#reg>input[type="text"]:focus{
+    background-color: yellow;
+}
+#reg>input[type="date"]:hover{
+    background-color: yellow;
+}
+#reg>input[type="date"]:active{
+    background-color: yellow;
+}
+#reg>input[type="date"]:focus{
+    background-color: yellow;
+}
+
+#busc>form>p>input:hover{
+    background-color: yellow;
+}
+#busc>form>p>input:active{
+    background-color: yellow;
+}
+#busc>form>p>input:focus{
+    background-color: yellow;
+}
+
+#formSolCheck>p>input:hover{
+    background-color: yellow;
+}
+#formSolCheck>p>input:active{
+    background-color: yellow;
+}
+#formSolCheck>p>input:focus{
+    background-color: yellow;
+}
+
+
+body>main>form{
+  color: white;
+  text-decoration: none;
+  padding: .2em;
+  text-align: center;
+}
+body>main>form>label{
+    color: black;
+}
+
+/* Footer*/
+
+footer{
+  background-color: black;
+  position:relative;
+  bottom:0;
+  text-align: center;
+  margin-left: -0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-bottom: -0.5em;
+  padding-bottom: 0.5em;
+}
+
+body>footer>p{
+  margin-left: 2em;
+}
+
+body>footer{
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  text-align: center;
+  bottom: 0px;
+  margin-top: 15em;
+  width: 100%;
+}
+
+/*Específicos*/
+
+#fotoEsp{
+  text-align: center;
+}
+
+#fotoEsp>ul>li{
+    list-style: none;
+}
+
+.fotos{
+  margin-left: 42%;
+}
+
+@media screen and (min-width: 1450px) {
+  .fotos{
+    margin-left: 30%;
+  }
+}
+
+@media screen and (min-width: 1850px) {
+  .fotos{
+    margin-left: 20%;
+  }
+}
+
+
+
+
+.fotos>div{
+  margin-top: 1em;
+}
+
+.fotos>div>p{
+ margin-bottom: -0.8em;
+}
+
+#login, #buscar, #reg{
+  font-size: 1.3em;
+}
+
+#reg{
+  text-align: right;
+}
+
+#reg>p{
+  text-align: center;
+}
+
+#reg>input, #login>input{
+  margin: 1em;
+}
+
+#login>input, #buscar>input, #reg>input{
+  width: auto;
+  margin-top: 0.1em ;
+  padding-top: 0.3em;
+}
+
+#login{
+  padding-left: 40%;
+}
+
+#solCheck{
+  margin-left: 40%;
+  text-align: center;
+}
+
+#solCheck>a{
+ text-decoration: none;
+ color: grey;
+}
+
+#solCheck>a:hover{
+  font-weight: bold;
+}
+
+#descSol {
+  margin-left: 0;
+   word-wrap: break-word;
+   width: 80%;
+   margin-left: 11%;
+   text-align: center;
+   position: relative;
+}
+
+.sinsub{
+  text-decoration: none;
+}

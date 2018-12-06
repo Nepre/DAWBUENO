@@ -1,0 +1,309 @@
+*{
+    font-family: 'Josefine Sans', sans-serif;
+}
+
+/* header */
+
+body>header{
+  text-align: center;
+  width: 100%;
+  margin-top: -0.5em;
+  padding-top: 0.5em;
+  margin-left: -0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+
+}
+
+
+
+body>header>div>form{
+  text-align: right;
+
+
+}
+body>header>div>form>input{
+  width: 7em;
+  margin: 0.1em;
+}
+
+/* Media queries */
+
+.push {
+    padding-top: 50px;
+}
+
+.general{
+  padding-top: 3em;
+  margin-left: 0%;
+  text-align: center;
+}
+
+#usuar{
+  text-align: center;
+}
+
+@media screen and (max-width:1100px) {
+  #log, #busc{
+    margin-left: 10%;
+  }
+}
+
+@media screen and (max-height:940px) {
+  .push{
+    padding-top: 215px;
+  }
+
+  #log, #busc{
+    margin-left:36%;
+  }
+
+  #reg{
+    margin-left: 36%;
+  }
+
+  body>footer{
+    padding-bottom: 3em;
+    margin-bottom: -4em;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body>header{
+    padding-bottom: 1em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 1em;
+  }
+
+  #log, #busc{
+    margin-left:0%;
+  }
+  #reg{
+    margin-left: 15%;
+  }
+  #usuar{
+    margin-left: -35%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body>header{
+    padding-bottom: 2em;
+  }
+  #menu>nav>ul{
+    padding-bottom: 2.1em;
+  }
+  #log, #busc{
+    margin-left:-30%;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #log, #busc{
+    margin-left:-70%;
+  }
+}
+
+
+
+/*Div principal*/
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body>header{
+  text-align: center;
+}
+
+body>div{
+  padding-top: 2em;
+  display: inline-block;
+  text-align: left;
+}
+
+body>div>div{
+  width: 30em;
+  float: left;
+  text-align: left;
+}
+
+
+
+body>table{
+  width: 40%;
+  margin: 10px auto;
+}
+
+
+/* NAVEGADOR */
+
+body>header>div>nav{
+	overflow: hidden;
+}
+
+	body>header>div>nav>ul{
+    min-height: 25px;
+		padding: 0;
+		margin: auto;
+		text-align: center;
+    max-height: 1.5em;
+    overflow: hidden;
+	}
+
+
+		body>header>div>nav>ul>li{
+			display: inline-block;
+		}
+
+			body>header>div>nav>ul>li>a{
+    			display: block;
+    			padding: 0.2em, 0.4em;
+    			margin-right : auto;
+    			width : 140px;
+    			line-height : 20px;
+    			text-align : center;
+			}
+
+
+
+/* FORMULARIOS */
+
+body>div>form{
+
+  text-align: right;
+}
+
+body>div>form>input{
+  width: 7em;
+}
+
+
+
+
+
+
+body>form{
+  padding: .2em;
+  text-align: center;
+}
+
+
+/* Footer*/
+
+footer{
+  position:relative;
+  bottom:0;
+  text-align: center;
+  margin-left: -0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-bottom: -0.5em;
+  padding-bottom: 0.5em;
+}
+
+body>footer>p{
+  margin-left: 2em;
+}
+
+body>footer{
+  overflow: hidden;
+  text-align: center;
+  bottom: 0px;
+  margin-top: 15em;
+  width: 100%;
+}
+
+/*Específicos*/
+
+#fotoEsp{
+  padding-left: 0%;
+  text-align: center;
+}
+
+
+.fotos{
+  margin-left: 42%;
+}
+
+@media screen and (min-width: 1450px) {
+  .fotos{
+    margin-left: 30%;
+  }
+}
+
+@media screen and (min-width: 1850px) {
+  .fotos{
+    margin-left: 20%;
+  }
+}
+
+
+
+
+.fotos>div{
+  margin-top: 1em;
+}
+
+.fotos>div>p{
+ margin-bottom: -0.8em;
+}
+
+
+
+#reg{
+  text-align: right;
+}
+
+#reg>p{
+  text-align: center;
+}
+
+#reg>input, #login>input{
+  margin: 1em;
+}
+
+#login>input, #buscar>input, #reg>input{
+  width: auto;
+  margin-top: 0.1em ;
+  padding-top: 0.3em;
+}
+
+#solCheck{
+  text-align: center;
+}
+
+#fotos{
+  margin-top: 5%;
+}
+
+
+#descSol {
+  margin-left: 0;
+   word-wrap: break-word;
+   width: 80%;
+   margin-left: 11%;
+   text-align: center;
+   position: relative;
+}
+
+#formReg{
+  margin-top: 2%;
+  margin-left: 40%;
+  text-align: left;
+}
+
+#tabla{
+  margin-left: 39%;
+}
+
+#formSolCheck, #tabla{
+  text-align: center;
+}
