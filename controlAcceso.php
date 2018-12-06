@@ -11,7 +11,7 @@
   echo '</p>';
   exit;
   }
-  $sentencia = "SELECT * FROM usuarios u join estilos e on u.Estilo = e.IdEstilo";
+  $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM usuarios u join estilos e on u.Estilo = e.IdEstilo");
   if(!($resultado = $mysqli->query($sentencia))) {
     echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
     echo '</p>';

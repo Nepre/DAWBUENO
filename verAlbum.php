@@ -25,7 +25,6 @@ require_once 'config.inc';
         exit;
         }
 
-
         $sentencia = "SELECT * FROM fotos f join albumes a on a.IdAlbum = f.Album left join paises p on f.Pais = p.IdPais where a.IdAlbum = '{$_GET["Album"]}' order by f.Fecha desc ";
         if(!($resultado = $mysqli->query($sentencia))) {
           echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;

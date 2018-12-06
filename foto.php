@@ -47,6 +47,7 @@ require_once 'config.inc';
          where IdFoto = {$_GET['id']}
 
 pedos;
+      $sentencia = mysqli_real_escape_string($mysqli, $sentencia);
 
 
        if(!($resultado = $mysqli->query($sentencia))) {

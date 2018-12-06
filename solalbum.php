@@ -21,8 +21,7 @@ require_once 'inicio.inc';
       echo '</p>';
       exit;
       }
-
-      $sentencia = "SELECT * FROM albumes a join usuarios u on a.IdAlbum = u.IdUsuario where u.NomUsuario = '{$_COOKIE["usu"]}'";
+      $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM albumes a join usuarios u on a.IdAlbum = u.IdUsuario where u.NomUsuario = '{$_COOKIE["usu"]}'");
       if(!($resultado = $mysqli->query($sentencia))) {
         echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
         echo '</p>';
