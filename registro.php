@@ -10,8 +10,8 @@ require_once 'config.inc';
 
  <main>
 
-   <form id=formReg action="formularioRegistro.php" method="post">
-       <label for="usu">Usuario*: </label><input type="text" id="usu" name="usu" required><br>
+   <form id=formReg action="formularioRegistro.php" method="post" >
+       <label for="usu">Usuario*: </label><input type="text" id="usu" name="usu" required pattern = "^[a-zA-z0-9]{3,15}$"><br>
        <label for="pwd">Contraseña*: </label><input type="password" id="pwd" name="pwd" required  pattern = "^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[a-zA-z0-9_]{5,15}$"><br>
        <label for="pwd2">Repita contraseña*: </label><input type="password" id="pwd2" name="pwd2" required><br>
        <label for="mail">Email* (Dominio entre 2 y 4 caracteres): </label><input type="text" id="mail" name="mail"><br>
