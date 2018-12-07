@@ -4,7 +4,7 @@ $title = "P.I.";
 
 require_once 'cabecera.inc';
 require_once 'inicio.inc';
-require_once 'logged.inc'
+require_once 'logged.inc';
 require_once 'config.inc';
 
  ?>

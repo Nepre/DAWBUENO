@@ -10,12 +10,11 @@ require_once 'config.inc';
 
  <main>
 
-   <form id=formReg>
+   <form action='formularioFoto.php?id=<?php echo $_GET['id']; ?>' id=formFoto name="formFoto" method="post">
        <label for="tit">Titulo: </label><input type="tit" id="tit" name="tit"><br>
        <label for="desc">Descripción: </label><input type="desc" id="desc" name="desc"><br>
        <label for="alt">Texto alternativo: </label><textarea type="alt" id="alt" name="alt" minlength="10" ></textarea><br>
-       <label for="mail">Email: </label><input type="text" id="mail" name="mail"><br>
-       <label for="fecha">Fecha de la foto: </label><input type="date" id="fecha" name="fecha"><br>
+       <label for="fecha">Fecha de la foto: </label><input type="date" id="fecha" name="fecha" required><br>
        <?php
 
        if($mysqli->connect_errno) {
@@ -30,11 +29,11 @@ require_once 'config.inc';
          exit;
        }
 
-       echo "<p><label>Album:</label><select><option></option> ";
+       echo "<p><label>Album:</label><select name='album' id ='album' required><option value=''></option>";
        while($fila=mysqli_fetch_assoc($resultado)){
-          echo "<option>{$fila['Titulo']}</option>";
+          echo "<option value='{$fila['IdAlbum']}'>{$fila['Titulo']}</option>";
        }
-       echo "</p></select>";
+       echo "</select></p>";
 
        $sentencia2 = "SELECT * FROM paises order by NomPais";
        if(!($resultado = $mysqli->query($sentencia2))) {
@@ -43,22 +42,20 @@ require_once 'config.inc';
          exit;
        }
 
-       echo "<p><label>Pais: </label><select><option></option> ";
+       echo "<p><label>Pais: </label><select id='pais' name ='pais'><option value=''></option> ";
        while($fila=mysqli_fetch_assoc($resultado)){
          print_r($fila);
-          echo "<option>{$fila['NomPais']}</option>";
+          echo "<option value='{$fila['IdPais']}' >{$fila['NomPais']}</option>";
        }
        echo "</p></select>";
 
        $resultado->close();
        $mysqli->close();
 
-          ?>
-
-       <p><label for="sexo">Sexo: </label><select id="sexo" name="sexo"><option></option> <option>Hombre</option> <option>Mujer</option></select><br></p>
-       <input type="file" name="file" id="foto" accept="image/*"><br>
+      ?>
+        <br>
+     <input type="file" name="file" id="foto" accept="image/*"><br>
      <input type="submit" value="Crear foto "></input> <br><br>
-
    </form>
 
    <p><form action="usuario.php">
