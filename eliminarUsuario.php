@@ -12,12 +12,39 @@ require_once 'logged.inc';
 
   $id = $_GET['id'];
   $clave = $_POST['pwd'];
-
-  $sentencia = "DELETE FROM usuarios where IdUsuario = $id and Clave = '$clave'";
+  echo $id;
+  $sentencia = "DELETE FROM usuarios where IdUsuario = $id and Clave = \"$clave\"";
   $host = $_SERVER['HTTP_HOST'];
   $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-  if (!mysqli_query($mysqli, $sentencia)) {
-      echo "Error: Escriba la contraseña correcta";
+
+  if(isset($_SESSION['arrayAlb']) && sizeof($_SESSION['arrayAlb']) > 0){
+    $arrayAlb = $_SESSION['arrayAlb'];
+    $sentencia2 = "DELETE FROM fotos where ";
+
+    for ($i=0; $i < sizeof($_SESSION['arrayAlb']) ; $i++) {
+      $sentencia2 .= "Album = {$arrayAlb[$i]}";
+      if($i+1 < sizeof($_SESSION['arrayAlb'])){
+        $sentencia2 .= " or ";
+      }
+    }
+    echo "<p>$sentencia2</p>";
+
+    $sentencia3 = "DELETE FROM albumes where ";
+    for ($i=0; $i < sizeof($_SESSION['arrayAlb']) ; $i++) {
+      $sentencia3 .= "IdAlbum = {$arrayAlb[$i]}";
+      if($i+1 < sizeof($_SESSION['arrayAlb'])){
+        $sentencia3 .= " or ";
+      }
+    }
+
+  }
+  echo "$sentencia<br>";
+  echo "$sentencia2<br>";
+  echo "$sentencia3<br>";
+
+
+
+  if (!mysqli_query($mysqli, $sentencia) ) {
       echo "<p><form action='Usuario.php'><input type='submit' value='Volver'/></form></p>";
       $extra = 'usuario.php';
       echo "<script>
@@ -27,7 +54,8 @@ require_once 'logged.inc';
       exit;
    }
    else{
-
+     mysqli_query($mysqli, $sentencia2);
+     mysqli_query($mysqli, $sentencia3);
     $extra = 'controlAcceso.php?salir=y';
     echo "<script>
             alert('Usuario eliminado.');
@@ -36,6 +64,7 @@ require_once 'logged.inc';
     exit;
 
    }
+
 
  ?>
 

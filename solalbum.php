@@ -4,30 +4,21 @@ $title = "P.I.";
 
 require_once 'cabecera.inc';
 require_once 'inicio.inc';
+require_once 'config.inc';
 
  ?>
 
  <main>
 
    <?php
-      $mysqli = @new mysqli(
-      'localhost',   // El servidor
-      'wwwdata',    // El usuario
-      '',          // La contraseña
-      'pidb'); // La base de datos
 
-      if($mysqli->connect_errno) {
-      echo '<p>Error al conectar con la base de datos: ' . $mysqli->connect_error;
-      echo '</p>';
-      exit;
-      }
-      $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM albumes a join usuarios u on a.IdAlbum = u.IdUsuario where u.NomUsuario = '{$_COOKIE["usu"]}'");
+
+      $sentencia = "SELECT * FROM albumes a join usuarios u on a.Usuario = u.IdUsuario where u.NomUsuario = '{$_COOKIE["usu"]}'";
       if(!($resultado = $mysqli->query($sentencia))) {
         echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
         echo '</p>';
         exit;
       }
-
 
       $i = 0;
       while($fila = mysqli_fetch_assoc($resultado)) {

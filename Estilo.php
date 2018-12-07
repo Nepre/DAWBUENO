@@ -24,6 +24,12 @@ require_once 'logged.inc';
       echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
    }
 
+   $sentencia = "UPDATE usuarios SET Estilo = '{$_POST["IdEstilo"]}' where IdUsuario = $id";
+
+   if (!mysqli_query($mysqli, $sentencia)) {
+       echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
+    }
+
    $host = $_SERVER['HTTP_HOST'];
    $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
    $extra = 'usuario.php';

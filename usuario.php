@@ -15,11 +15,6 @@ require_once 'config.inc';
 
        <div>
          <?php
-         if($mysqli->connect_errno) {
-         echo '<p>Error al conectar con la base de datos: ' . $mysqli->connect_error;
-         echo '</p>';
-         exit;
-         }
          $sentencia = "SELECT * FROM usuarios u join estilos e on u.Estilo = e.IdEstilo left join paises p on u.Pais = p.IdPais where u.NomUsuario = '{$_COOKIE['usu']}'";
          if(!($resultado = $mysqli->query($sentencia))) {
            echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
@@ -72,8 +67,8 @@ a;
          <p><form action="solalbum.php">
              <input type="submit" value="Ver albumes" />
          </form></p>
-         <p><form action="crearAlbum.php">
-             <input type="submit" value="Crear album" />
+         <p><form action="crearAlbum.php?id=<?php echo $idUsu; ?>" method="post">
+             <input type="submit" value="crear Album" />
          </form></p>
 
          <p><form action="subirfoto.php">

@@ -28,7 +28,7 @@ require_once 'config.inc';
    list($name, $domain) = explode("@", $email);
    $domain = explode(".", $domain);
 
-   if(sizeof($domain) > 2 || ( strlen($domain[0]) < 2 || strlen($domain[0]) > 4)){
+   if(sizeof($domain) > 2 || ( strlen($domain[1]) < 2 || strlen($domain[1]) > 4)){
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
      $extra = 'registro.php';
