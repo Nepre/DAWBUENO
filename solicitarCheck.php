@@ -101,7 +101,7 @@ require_once 'config.inc';
       $sentencia = "INSERT INTO solicitud VALUES (null, $album, $nom, $tit, $dec, $email, $dir, $col, $cop, $res, $fecha, $col2, $today, $coste )";
       if (!mysqli_query($mysqli, $sentencia)) {
           echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
-       }
+       }  
     ?>
     <br>
     <a href="usuario.php"id="bot">Aceptar</a>
