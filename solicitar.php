@@ -102,7 +102,7 @@ require_once 'config.inc';
          exit;
        }
 
-       echo '<p><label for="album">País: </label><select id="album" name="album">';
+       echo '<p><label for="album">Álbum: </label><select id="album" name="album">';
        echo "<option></option>";
        while($fila=mysqli_fetch_assoc($resultado)){
           echo "<option>{$fila['Titulo']}</option>";
