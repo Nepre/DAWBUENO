@@ -57,7 +57,7 @@ a;
          $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
          $extra = "usuario.php";
           ?>
-          <form action="datosusu.php">
+          <form action="datosusu.php?id=<?php echo $idUsu; ?>" method="post">
               <input type="submit" value="Editar datos" />
           </form>
           <p><form action="darseBaja.php?id=<?php echo $idUsu; ?>" method="post">

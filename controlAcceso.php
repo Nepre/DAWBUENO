@@ -49,7 +49,7 @@
       $host = $_SERVER['HTTP_HOST'];
       $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
       $extra2 = "index.php";
-      
+
       $_SESSION = array();
       //echo "salimos";
       if(isset($_COOKIE[session_name()])){
@@ -95,16 +95,27 @@
     }
     else{
       if(isset($_GET['acceder'])){
-        echo "<script>
-                alert('Las cookies han variado, usuario y contraseña no correctos.');
-                window.location.href='http://$host$uri/$extra';
-                </script>";
+        if(isset($_GET['up'])){
+          echo "<script>
+                  alert('Modificacion aceptada.');
+                  window.location.href='http://$host$uri/$extra';
+                  </script>";
+        }
+        else{
+          echo "<script>
+                  alert('Las cookies han variado, usuario y contraseña no correctos.');
+                  window.location.href='http://$host$uri/$extra';
+                  </script>";
+        }
+
+        exit;
       }
       else{
         echo "<script>
                 alert('Usuario y/o contraseña incorrectos.');
                 window.location.href='http://$host$uri/$extra';
                 </script>";
+        exit;
       }
     }
   }

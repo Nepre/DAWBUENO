@@ -30,7 +30,7 @@ require_once 'logged.inc';
    list($name, $domain) = explode("@", $email);
    $domain = explode(".", $domain);
 
-   if(sizeof($domain) > 2 || ( strlen($domain[0]) < 2 || strlen($domain[0]) > 4)){
+   if(strlen($domain[sizeof($domain)-1]) < 2 || strlen($domain[sizeof($domain)-1]) > 4){
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
      $extra = 'datosusu.php';
@@ -68,7 +68,7 @@ require_once 'logged.inc';
        break;
    }
 
-   $sentenciaPWD = "SELECT IdUsuario, NomUsuario, Clave FROM usuarios WHERE NomUsuario = '$usu'";
+   $sentenciaPWD = "SELECT IdUsuario, NomUsuario, Clave FROM usuarios WHERE IdUsuario = '{$_GET["id"]}'";
    if(!($resultado = $mysqli->query($sentenciaPWD))) {
      echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
      echo '</p>';
@@ -98,24 +98,13 @@ require_once 'logged.inc';
    if (!mysqli_query($mysqli, $sentencia)) {
        echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
     }
-
-   echo <<<DocIn
-   <p>Se ha modificado el usuario:</p>
-   <p>
-   Usuario: <b>{$_POST["usu"]}</b>
-   <br />
-   Email: <b>{$_POST["mail"]}</b>
-   <br />
-   Ciudad: <b>{$_POST["ciudad"]}</b>
-   <br />
-   Pais: <b>{$_POST["pais"]}</b>
-   <br />
-   Sexo: <b>{$_POST["sexo"]}</b>
-   </p>
-   <p><form action="Usuario.php">
-       <input type="submit" value="Aceptar" />
-   </form></p>
-DocIn;
+    $host = $_SERVER['HTTP_HOST'];
+    $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $extra = 'modificadoUpdate.php?id='. $_GET["id"];
+    echo "<script>
+            window.location.href='http://$host$uri/$extra';
+            </script>";
+    exit;
  }
 ?>
 <?php
