@@ -58,9 +58,10 @@ require_once 'config.inc';
 
       echo "<p><strong>Coste: $precio € </strong></p>";
 
+      $sentencia = "INSERT INTO usuarios VALUES (null, )";
     ?>
     <br>
-    <a href="index.php"id="bot">Aceptar</a>
+    <a href="usuario.php"id="bot">Aceptar</a>
   </div>
 </main>
 
