@@ -5,16 +5,18 @@ $title = "P.I.";
 require_once 'cabecera.inc';
 require_once 'inicio.inc';
 require_once 'config.inc';
+require_once 'logged.inc';
 
  ?>
 <?php
   $pwd = filter_var($_POST["pwd"], FILTER_SANITIZE_STRING);
   $pwd2 = filter_var($_POST["pwd2"], FILTER_SANITIZE_STRING);
+  $pwd3 = filter_var($_POST["pwd3"], FILTER_SANITIZE_STRING);
 
-  if($pwd != $pwd2){
+  if($pwd2 != $pwd3){
     $host = $_SERVER['HTTP_HOST'];
     $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-    $extra = 'registro.php';
+    $extra = 'datosusu.php';
     echo "<script>
             alert('Las contraseñas deben ser iguales.');
             window.location.href='http://$host$uri/$extra';
@@ -31,7 +33,7 @@ require_once 'config.inc';
    if(sizeof($domain) > 2 || ( strlen($domain[0]) < 2 || strlen($domain[0]) > 4)){
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-     $extra = 'registro.php';
+     $extra = 'datosusu.php';
      echo "<script>
              alert('El email no cumple las especificaciones de dominio.');
              window.location.href='http://$host$uri/$extra';
@@ -48,7 +50,7 @@ require_once 'config.inc';
    if($fecha>$today){
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-     $extra = 'registro.php';
+     $extra = 'datosusu.php';
      echo "<script>
              alert('No puedes haber nacido en el futuro.');
              window.location.href='http://$host$uri/$extra';
@@ -66,15 +68,39 @@ require_once 'config.inc';
        break;
    }
 
+   $sentenciaPWD = "SELECT IdUsuario, NomUsuario, Clave FROM usuarios WHERE NomUsuario = '$usu'";
+   if(!($resultado = $mysqli->query($sentenciaPWD))) {
+     echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
+     echo '</p>';
+     exit;
+   }
 
-   $sentencia = "INSERT INTO usuarios VALUES (null, '$usu', '$pwd', '$email', '$sexo', '$fecha', '$ciudad', $pais, 'jon.jpg', '$today', 1)";
+   $fila=mysqli_fetch_assoc($resultado);
+   $idUsu = $fila['IdUsuario'];
+   if($fila['Clave'] != $pwd){
+     $host = $_SERVER['HTTP_HOST'];
+     $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+     $extra = 'datosusu.php';
+     echo "<script>
+             alert('La contraseña actual no es correcta.');
+             window.location.href='http://$host$uri/$extra';
+             </script>";
+     exit;
+   }
+
+   if(strlen($pwd2) == 0){
+     $pwd2 = $pwd;
+   }
+
+
+   $sentencia = "UPDATE usuarios SET NomUsuario = '$usu', Clave = '$pwd2', Email = '$email', Sexo = '$sexo', FNacimiento = '$fecha', Ciudad = '$ciudad', Pais = $pais where IdUsuario = $idUsu";
 
    if (!mysqli_query($mysqli, $sentencia)) {
        echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
     }
 
    echo <<<DocIn
-   <p>Se ha creado el usuario:</p>
+   <p>Se ha modificado el usuario:</p>
    <p>
    Usuario: <b>{$_POST["usu"]}</b>
    <br />
@@ -86,7 +112,7 @@ require_once 'config.inc';
    <br />
    Sexo: <b>{$_POST["sexo"]}</b>
    </p>
-   <p><form action="index.php">
+   <p><form action="Usuario.php">
        <input type="submit" value="Aceptar" />
    </form></p>
 DocIn;

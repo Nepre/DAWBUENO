@@ -10,20 +10,15 @@ require_once 'config.inc';
 
  <main>
 
-   <form id=formReg action="formularioRegistro.php?id=123" method="post">
-       <label for="usu">Usuario: </label><input type="text" id="usu" name="usu"><br>
-       <label for="pwd">Contraseña: </label><input type="password" id="pwd" name="pwd"><br>
-       <label for="pwd2">Repita contraseña: </label><input type="password" id="pwd2" name="pwd2"><br>
-       <label for="mail">Email: </label><input type="text" id="mail" name="mail"><br>
+   <form id=formReg action="formularioRegistro.php" method="post">
+       <label for="usu">Usuario*: </label><input type="text" id="usu" name="usu" required><br>
+       <label for="pwd">Contraseña*: </label><input type="password" id="pwd" name="pwd" required><br>
+       <label for="pwd2">Repita contraseña*: </label><input type="password" id="pwd2" name="pwd2" required><br>
+       <label for="mail">Email* (Dominio entre 2 y 4 caracteres): </label><input type="text" id="mail" name="mail"><br>
 
-       <label for="fecha">Fecha de nacimiento: </label><input type="date" id="fecha" name="fecha"><br>
+       <label for="fecha">Fecha de nacimiento*: </label><input type="date" id="fecha" name="fecha" required><br>
        <label for="ciudad">Ciudad: </label><input type="text" id="ciudad" name="ciudad"><br>
        <?php
-       if($mysqli->connect_errno) {
-       echo '<p>Error al conectar con la base de datos: ' . $mysqli->connect_error;
-       echo '</p>';
-       exit;
-       }
        $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM paises order by NomPais");
        if(!($resultado = $mysqli->query($sentencia))) {
          echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
@@ -31,11 +26,12 @@ require_once 'config.inc';
          exit;
        }
 
+       echo '<p><label for="sexo">Sexo*: </label><select id="sexo" name="sexo" required><option value=""></option><option>Hombre</option> <option>Mujer</option></select><br></p>';
 
        echo '<p><label for="pais">País: </label><select id="pais" name="pais"><option></option>';
 
        while($fila=mysqli_fetch_assoc($resultado)){
-          echo "<option>{$fila['NomPais']}</option>";
+          echo "<option value = {$fila['IdPais']}>{$fila['NomPais']}</option>";
        }
 
         echo "</select><br></p>";
@@ -45,7 +41,6 @@ require_once 'config.inc';
 
           ?>
 
-       <p><label for="sexo">Sexo: </label><select id="sexo" name="sexo"><option></option><option>Hombre</option> <option>Mujer</option></select><br></p>
        <input type="file" name="file" id="foto" accept="image/*"><br>
      <input type="submit" value="Registrarse"></input> <br><br>
 

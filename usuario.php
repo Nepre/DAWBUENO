@@ -20,7 +20,7 @@ require_once 'config.inc';
          echo '</p>';
          exit;
          }
-         $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM usuarios u join estilos e on u.Estilo = e.IdEstilo left join paises p on u.Pais = p.IdPais where u.NomUsuario = '{$_COOKIE['usu']}'");
+         $sentencia = "SELECT * FROM usuarios u join estilos e on u.Estilo = e.IdEstilo left join paises p on u.Pais = p.IdPais where u.NomUsuario = '{$_COOKIE['usu']}'";
          if(!($resultado = $mysqli->query($sentencia))) {
            echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
            echo '</p>';
@@ -33,10 +33,6 @@ require_once 'config.inc';
          </div>
 a;
 
-
-         //print_r($resFin);
-         $resultado->close();
-         $mysqli->close();
 
           ?>
          <p><label id="usuLab"><?php echo $_COOKIE["usu"] ?></label></p>
@@ -54,7 +50,7 @@ a;
            else{
              echo "Otro";
            }
-
+           $idUsu = $resFin['IdUsuario'];
             ?>
 
          </label></p>
@@ -69,7 +65,10 @@ a;
           <form action="datosusu.php">
               <input type="submit" value="Editar datos" />
           </form>
-         <p><button type="button" name="darBaja">Darse de baja</button></p>
+          <p><form action="darseBaja.php?id=<?php echo $idUsu; ?>" method="post">
+              <input type="submit" value="Darse de baja" />
+          </form></p>
+
          <p><form action="solalbum.php">
              <input type="submit" value="Ver albumes" />
          </form></p>
@@ -81,20 +80,9 @@ a;
              <input type="submit" value="Subir foto" />
          </form></p>
 
-         <p><button type="button" name="darBaja">Darse de baja</button></p>
-         <p><select>
+         <p><form id = 'formEstilo' action='Estilo.php?id=<?php echo $idUsu; ?>' method = 'post'>
+         <select name="IdEstilo" id = "IdEstilo">
            <?php
-           $mysqli = @new mysqli(
-           'localhost',   // El servidor
-           'wwwdata',    // El usuario
-           '',          // La contraseña
-           'pidb'); // La base de datos
-
-           if($mysqli->connect_errno) {
-           echo '<p>Error al conectar con la base de datos: ' . $mysqli->connect_error;
-           echo '</p>';
-           exit;
-           }
            $sentencia = "SELECT * FROM estilos";
            if(!($resultado2 = $mysqli->query($sentencia))) {
              echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
@@ -104,14 +92,18 @@ a;
 
 
            while($fila2=mysqli_fetch_assoc($resultado2)){
-              echo "<option>{$fila2['Descripcion']}</option>";
+              echo "<option value='{$fila2['IdEstilo']}'>{$fila2['Descripcion']}</option>";
            }
+
+
+
 
            $resultado2->close();
            $mysqli->close();
            ?>
-
          </select></p>
+         <input type="submit" value="Modificar estilo"/>
+         </form></p>
          <form action="solicitar.php">
              <input type="submit" value="Solicitar album" />
          </form>

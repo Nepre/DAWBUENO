@@ -67,7 +67,7 @@ require_once 'config.inc';
         }
         $whereSent .= $fecha;
       }
-      $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM fotos f left join paises p on f.Pais = p.IdPais $where $whereSent");
+      $sentencia =  "SELECT * FROM fotos f left join paises p on f.Pais = p.IdPais $where $whereSent";
       if(!($resultado = $mysqli->query($sentencia))) {
         echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
         echo '</p>';

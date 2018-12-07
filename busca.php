@@ -19,7 +19,7 @@ require_once 'config.inc';
        echo '</p>';
        exit;
        }
-       $sentencia = mysqli_real_escape_string($mysqli, "SELECT * FROM paises order by NomPais");
+       $sentencia = "SELECT * FROM paises order by NomPais";
        if(!($resultado = $mysqli->query($sentencia))) {
          echo "<p>Error al ejecutar la sentencia <b>$sentencia</b>: " . $mysqli->error;
          echo '</p>';
