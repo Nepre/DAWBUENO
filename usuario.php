@@ -68,7 +68,7 @@ a;
              <input type="submit" value="Ver albumes" />
          </form></p>
          <p><form action="crearAlbum.php?id=<?php echo $idUsu; ?>" method="post">
-             <input type="submit" value="crear Album" />
+             <input type="submit" value="Crear Album" />
          </form></p>
 
          <p><form action="subirfoto.php?id=<?php echo $idUsu; ?>" method = 'post'>

@@ -60,19 +60,14 @@ require_once 'logged.inc';
      echo "<p>Descripción: {$fila['Descripcion']}</p>";
      $idAlb = (int)$fila['IdAlbum'];
      array_push($arrayAlb, $idAlb);
-     $sentencia2 = "SELECT * FROM fotos where Album = $idAlb";
+     $sentencia2 = "SELECT COUNT(IdFoto) c FROM fotos where Album = $idAlb";
      if(!($resultado2 = $mysqli->query($sentencia2))) {
        echo "<p>Error al ejecutar la sentencia <b>$sentencia2</b>: " . $mysqli->error;
        echo '</p>';
        exit;
      }
-     echo "<p>Fotos:</p>";
-     $j = 0;
-     while($fila = mysqli_fetch_assoc($resultado2)) {
-       echo "<p>Titulo: ". $fila['Titulo'] ." </p>";
-       $j++;
-     }
-     if($j == 0) echo "<p>No hay fotos</p>";
+     $fila = mysqli_fetch_assoc($resultado2);
+     echo "<p>Num fotos: {$fila['c']}</p>";
      echo "</br></br>";
      $i++;
  }
@@ -80,7 +75,6 @@ require_once 'logged.inc';
    echo "No hay albumes en esta cuenta.";
  }
   $_SESSION['arrayAlb'] = $arrayAlb;
-  print_r($_SESSION['arrayAlb']);
 
   ?>
 
@@ -89,6 +83,10 @@ require_once 'logged.inc';
     <label for='pwd'>Escriba contraseña para confirmar: </label><input type='password' id='pwd' name='pwd' value='' required><br>
     <input type="submit" value="Eliminar cuenta"></input>
    </form>
+   <br>
+   <p><form action="usuario.php">
+       <input type="submit" value="Volver" />
+   </form></p>
 
 
 <?php

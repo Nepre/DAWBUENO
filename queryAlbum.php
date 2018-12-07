@@ -17,9 +17,9 @@ require_once 'config.inc';
    else{
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-     $extra = 'controlAcceso.php?salir=y';
+     $extra = 'usuario.php';
      echo "<script>
-             alert('Album {$_POST['tit']}.');
+             alert('Album {$_POST['tit']} creado.');
              window.location.href='http://$host$uri/$extra';
              </script>";
      exit;

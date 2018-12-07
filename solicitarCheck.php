@@ -17,7 +17,7 @@ require_once 'config.inc';
     <p>Texto adicional: <b><?php echo $_POST["textAdici"];?></b></p>
     <p>Email: <b><?php echo $_POST["email"];?></b></p>
     <p>Dirección:<?php
-        $dir= $_POST["name"] . $_POST["num"] . $_POST["piso"] . $_POST["localidad"] . $_POST["provincia"] . $_POST["pais"];
+        $dir= $_POST["calle"] . $_POST["num"] . $_POST["piso"] . $_POST["localidad"] . $_POST["provincia"] . $_POST["pais"];
         echo $dir; ?></p>
     <p>Calle: <b><?php echo $_POST["calle"] ;?></b></p>
     <p>Número: <b><?php echo $_POST["num"] ;?></b></p>
@@ -60,7 +60,7 @@ require_once 'config.inc';
 
       echo "<p><strong>Coste: $precio € </strong></p>";
 
-      $album = filter_var($_POST["album"], FILTER_SANITIZE_INT);
+      $album = filter_var($_POST["album"], FILTER_VALIDATE_INT);
       $nom = filter_var($_POST["nomApell"], FILTER_SANITIZE_STRING);
       $tit = filter_var($_POST["titulo"], FILTER_SANITIZE_STRING);
       $des = filter_var($_POST["textAdici"], FILTER_SANITIZE_STRING);
@@ -80,8 +80,8 @@ require_once 'config.inc';
         exit;
       }
       $col = filter_var($_POST["color"], FILTER_SANITIZE_STRING);
-      $cop = filter_var($_POST["num"], FILTER_SANITIZE_INT);
-      $res = filter_var($_POST["quantity"], FILTER_SANITIZE_INT);
+      $cop = filter_var($_POST["num"], FILTER_VALIDATE_INT);
+      $res = filter_var($_POST["quantity"], FILTER_VALIDATE_INT);
       $fecha = $_POST["envio"];
       $today = date("Y-m-d");
 
@@ -98,10 +98,10 @@ require_once 'config.inc';
       $col2=0;
       if($_POST["bncl"] == "bn"){ $col2=1;}
 
-      $sentencia = "INSERT INTO solicitud VALUES (null, $album, $nom, $tit, $dec, $email, $dir, $col, $cop, $res, $fecha, $col2, $today, $coste )";
+      $sentencia = "INSERT INTO solicitudes VALUES (null, $album, '$nom', '$tit', '$des', '$email', '$dir', '$col', $cop, $res, '$fecha', '$col2', $today, $precio)";
       if (!mysqli_query($mysqli, $sentencia)) {
           echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
-       }  
+       }
     ?>
     <br>
     <a href="usuario.php"id="bot">Aceptar</a>

@@ -102,10 +102,10 @@ require_once 'config.inc';
          exit;
        }
 
-       echo '<p><label for="album">Álbum: </label><select id="album" name="album">';
-       echo "<option></option>";
+       echo '<p><label for="album">Álbum: </label><select id="album" name="album" required>';
+       echo "<option value=''></option>";
        while($fila=mysqli_fetch_assoc($resultado)){
-          echo "<option>{$fila['Titulo']}</option>";
+          echo "<option value = '{$fila['IdAlbum']}'>{$fila['Titulo']}</option>";
        }
 
        echo "</select><br></p>";
