@@ -16,7 +16,9 @@ require_once 'config.inc';
     <p>Título: <b><?php echo $_POST["titulo"];?></b></p>
     <p>Texto adicional: <b><?php echo $_POST["textAdici"];?></b></p>
     <p>Email: <b><?php echo $_POST["email"];?></b></p>
-    <p>Dirección:</p>
+    <p>Dirección:<?php
+        $dir= $_POST["name"] . $_POST["num"] . $_POST["piso"] . $_POST["localidad"] . $_POST["provincia"] . $_POST["pais"];
+        echo $dir; ?></p>
     <p>Calle: <b><?php echo $_POST["calle"] ;?></b></p>
     <p>Número: <b><?php echo $_POST["num"] ;?></b></p>
     <p>Piso: <b><?php echo $_POST["piso"] ;?></b></p>
@@ -58,7 +60,48 @@ require_once 'config.inc';
 
       echo "<p><strong>Coste: $precio € </strong></p>";
 
-      $sentencia = "INSERT INTO usuarios VALUES (null, )";
+      $album = filter_var($_POST["album"], FILTER_SANITIZE_INT);
+      $nom = filter_var($_POST["nomApell"], FILTER_SANITIZE_STRING);
+      $tit = filter_var($_POST["titulo"], FILTER_SANITIZE_STRING);
+      $des = filter_var($_POST["textAdici"], FILTER_SANITIZE_STRING);
+      $email = $_POST["email"];
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+      list($name, $domain) = explode("@", $email);
+      $domain = explode(".", $domain);
+
+      if( strlen($domain[sizeof($domain)-1]) < 2 || strlen($domain[sizeof($domain)-1]) > 4){
+        $host = $_SERVER['HTTP_HOST'];
+        $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $extra = 'solicitar.php';
+        echo "<script>
+                alert('El email no cumple las especificaciones de dominio.');
+                window.location.href='http://$host$uri/$extra';
+                </script>";
+        exit;
+      }
+      $col = filter_var($_POST["color"], FILTER_SANITIZE_STRING);
+      $cop = filter_var($_POST["num"], FILTER_SANITIZE_INT);
+      $res = filter_var($_POST["quantity"], FILTER_SANITIZE_INT);
+      $fecha = $_POST["envio"];
+      $today = date("Y-m-d");
+
+      if($fecha<$today){
+        $host = $_SERVER['HTTP_HOST'];
+        $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $extra = 'solicitud.php';
+        echo "<script>
+                alert('No puedes pedir envios al pasado.');
+                window.location.href='http://$host$uri/$extra';
+                </script>";
+        exit;
+      }
+      $col2=0;
+      if($_POST["bncl"] == "bn"){ $col2=1;}
+
+      $sentencia = "INSERT INTO solicitud VALUES (null, $album, $nom, $tit, $dec, $email, $dir, $col, $cop, $res, $fecha, $col2, $today, $coste )";
+      if (!mysqli_query($mysqli, $sentencia)) {
+          echo "Error: " . $sentencia . "" . mysqli_error($mysqli);
+       }
     ?>
     <br>
     <a href="usuario.php"id="bot">Aceptar</a>

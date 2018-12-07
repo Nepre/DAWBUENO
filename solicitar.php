@@ -55,19 +55,19 @@ require_once 'config.inc';
    </table>
    <form id="formSolCheck" action="solicitarCheck.php?id=24" method="post">
        <p>
-         <label for="nom">Nombre y apellidos</label> <input id="nom" type="text" name="nomApell" maxlength="200" placeholder="Nombre" required><label>(*)</label>
+         <label for="nom">Nombre y apellidos</label> <input id="nom" type="text"  maxlength="200" name="nomApell" maxlength="200" placeholder="Nombre" required><label>(*)</label>
        </p>
 
        <p>
-         <label for="tit">Título</label> <input id="tit" type="text" name="titulo" maxlength="200" placeholder="Título" required><label>(*)</label>
+         <label for="tit">Título</label> <input id="tit"  maxlength="200" type="text" name="titulo" maxlength="200" placeholder="Título" required><label>(*)</label>
        </p>
 
        <p>
-         <label for="ad">Texto adicional</label> <input id="ad" type="text" name="textAdici" maxlength="4000" placeholder="Texto" required><label>(*)</label>
+         <label for="ad">Descripción</label> <input id="ad"  maxlength="4000" type="text" name="textAdici" maxlength="4000" placeholder="Texto" required><label>(*)</label>
        </p>
 
        <p>
-         <label for="email">Email</label> <input id="email" type="text" name="email" maxlength="200" placeholder="Email" required><label>(*)</label>
+         <label for="email">Email</label> <input id="email"  maxlength="200" type="text" name="email" maxlength="200" placeholder="Email" required><label>(*)</label>
        </p>
        <p><label for="dir">Dirección: </label>
        <input id="dir" type="text" name="calle" maxlength="200" placeholder="Calle" required>
