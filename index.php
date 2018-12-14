@@ -14,6 +14,8 @@ require_once 'config.inc';
 
  <main>
     <?php
+
+    require_once 'fotoDestacada.inc';
     $paginaActual = 1;
     $fin = false;
     if(isset($_GET['pagina'])){$paginaActual = $_GET['pagina'];}
@@ -38,7 +40,7 @@ require_once 'config.inc';
       //print_r($fila);
       echo "<div id='foto$i'>";
       echo "<h3>{$fila['Titulo']}</h3>";
-      echo "<a href='foto.php?id={$fila['IdFoto']}'><img src='{$fila['Fichero']}' width='200' alt='{$fila['Alternativo']}'></a>";
+      echo "<a href='foto.php?id={$fila['IdFoto']}'><img src='upload/{$fila['Fichero']}' width='200' alt='{$fila['Alternativo']}'></a>";
       echo "<p>{$fila['FRegistro']}</p>";
       if($fila['NomPais']=="" && $fila['Titulo'] != "" ){
           echo "<p>No hay país</p>";

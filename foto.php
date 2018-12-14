@@ -65,7 +65,7 @@ pedos;
        }
        //print_r($resFin);
        echo "<h3>{$resFin['NomFot']}</h3>";
-       echo "<a href='foto.php?id={$resFin['IdFoto']}'><img src='{$resFin['Fichero']}' width='200' alt='{$resFin['Alternativo']}'></a>";
+       echo "<a href='foto.php?id={$resFin['IdFoto']}'><img src='upload/{$resFin['Fichero']}' width='200' alt='{$resFin['Alternativo']}'></a>";
        echo "<ul>";
        echo "<li>{$resFin['Fecha']}<li>";
        echo "<li>{$resFin['NomPais']}<li>";

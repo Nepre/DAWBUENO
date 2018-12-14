@@ -24,7 +24,7 @@ require_once 'config.inc';
          $resFin = $resultado->fetch_assoc();
          echo <<<a
          <div id="fotoLab">
-           <img src='{$resFin['Foto']}' width="200" alt='jon'>
+           <img src='perfil/{$resFin['Foto']}' width="200" alt='jon'>
          </div>
 a;
 
@@ -60,6 +60,11 @@ a;
           <form action="datosusu.php?id=<?php echo $idUsu; ?>" method="post">
               <input type="submit" value="Editar datos" />
           </form>
+
+          <p><form action="eliminarfotoPerfil.php?id=<?php echo $idUsu; ?>" method = 'post'>
+              <input type="submit" value="Eliminar Foto de Perfil" />
+          </form></p>
+
           <p><form action="darseBaja.php?id=<?php echo $idUsu; ?>" method="post">
               <input type="submit" value="Darse de baja" />
           </form></p>
@@ -73,6 +78,10 @@ a;
 
          <p><form action="subirfoto.php?id=<?php echo $idUsu; ?>" method = 'post'>
              <input type="submit" value="Subir foto" />
+         </form></p>
+
+         <p><form action="eliminarfoto.php?id=<?php echo $idUsu; ?>" method = 'post'>
+             <input type="submit" value="Eliminar Foto" />
          </form></p>
 
          <p><form id = 'formEstilo' action='Estilo.php?id=<?php echo $idUsu; ?>' method = 'post'>

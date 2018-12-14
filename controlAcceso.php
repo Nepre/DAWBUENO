@@ -84,6 +84,7 @@
     if($correctUsu){
       header("Location: http://$host$uri/$extra");
       setcookie('usu', $usuPost, time() + 90 * 24 * 60 * 60);
+      //TODO idiota poner una cookie para el ID
       $_SESSION['logged'] = true;
       setcookie('session',"true", time() + 90 * 24 * 60 * 60);
       if(!(isset($_COOKIE['usu']) && isset($_COOKIE['pwd'])) && isset($_POST['remember'])){

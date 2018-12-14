@@ -307,3 +307,8 @@ body>footer{
 #formSolCheck, #tabla{
   text-align: center;
 }
+
+.fotoDestacada{
+  margin-left: -2%;
+  text-align: center;
+}

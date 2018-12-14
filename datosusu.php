@@ -10,7 +10,7 @@ require_once 'config.inc';
 
  <main>
 
-   <form id=formReg action="formularioUpdate.php?id=<?php echo $_GET['id']; ?>" method="post">
+   <form id=formReg action="formularioUpdate.php?id=<?php echo $_GET['id']; ?>" method="post" enctype="multipart/form-data">
 
       <?php  $sentencia ="SELECT * FROM usuarios u where u.NomUsuario = '{$_COOKIE["usu"]}'";
        if(!($resultado = $mysqli->query($sentencia))) {
@@ -69,7 +69,7 @@ require_once 'config.inc';
 
           ?>
 
-       <input type="file" name="file" id="foto" accept="image/*"><br>
+       <input type="file" name="fichero" id="foto" accept="image/*"><br>
      <input type="submit" value="Modificar"></input> <br><br>
 
    </form>

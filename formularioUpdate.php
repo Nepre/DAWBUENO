@@ -33,7 +33,7 @@ require_once 'logged.inc';
    if(strlen($domain[sizeof($domain)-1]) < 2 || strlen($domain[sizeof($domain)-1]) > 4){
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-     $extra = 'datosusu.php';
+     $extra = 'usuario.php';
      echo "<script>
              alert('El email no cumple las especificaciones de dominio.');
              window.location.href='http://$host$uri/$extra';
@@ -80,7 +80,7 @@ require_once 'logged.inc';
    if($fila['Clave'] != $pwd){
      $host = $_SERVER['HTTP_HOST'];
      $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-     $extra = 'datosusu.php';
+     $extra = 'usuario.php';
      echo "<script>
              alert('La contraseña actual no es correcta.');
              window.location.href='http://$host$uri/$extra';
@@ -92,8 +92,55 @@ require_once 'logged.inc';
      $pwd2 = $pwd;
    }
 
+   if( $_FILES["fichero"]["name"] == ""){
 
-   $sentencia = "UPDATE usuarios SET NomUsuario = '$usu', Clave = '$pwd2', Email = '$email', Sexo = '$sexo', FNacimiento = '$fecha', Ciudad = '$ciudad', Pais = $pais where IdUsuario = $idUsu";
+     $host = $_SERVER['HTTP_HOST'];
+     $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+     $extra = "usuario.php";
+
+     echo "<script>
+             alert('Seleccione un archivo.');
+             window.location.href='http://$host$uri/$extra';
+             </script>";
+
+     exit;
+
+   }
+
+
+
+   print_r($_FILES);
+
+   //Se debería hacer que llevase cuidado con si el archivo lleva varios puntos pero me da bastante pereza
+   $file = $_FILES["fichero"]["name"];
+   $filename = explode(".", $_FILES["fichero"]["name"])[0];
+   $extension = explode(".", $_FILES["fichero"]["name"])[1];
+
+   //echo $filename . $br;
+   //echo $extension . $br;
+   $exists = true;
+   $i = 0;
+
+   do {
+     if(file_exists("upload/" . $file))
+      {
+       //echo $file . " ya existe" .$br;
+       $file = $filename . $i .".".$extension;
+       //echo "Renombrando a " . $file.$br;
+       $i = $i + 1;
+      }
+      else
+      {
+       move_uploaded_file($_FILES["fichero"]["tmp_name"],
+                     "perfil/" . $file);
+       //echo "Almacenado en: " . "upload/" . $file.$br;
+       $exists = false;
+      }
+   } while ($exists);
+
+
+
+   $sentencia = "UPDATE usuarios SET NomUsuario = '$usu', Clave = '$pwd2', Email = '$email', Sexo = '$sexo', FNacimiento = '$fecha', Ciudad = '$ciudad', Pais = $pais, Foto = '$file' where IdUsuario = $idUsu";
 
    if (!mysqli_query($mysqli, $sentencia)) {
        echo "Error: " . $sentencia . "" . mysqli_error($mysqli);

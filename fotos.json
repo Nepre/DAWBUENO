@@ -1,0 +1,19 @@
+[
+
+  {
+    "fichero":"casa.jpg",
+    "nombre":"Pedro",
+    "razon":"Esta majestuosidad de obra de arte es la culminación de años de estudio de la fotografia"
+  },
+  {
+    "fichero":"jon.jpg",
+    "nombre":"Martín",
+    "razon":"Sorprendentemente, jon no es más que un chaval."
+  },
+  {
+    "fichero":"mehy.png",
+    "nombre":"Eduardo",
+    "razon":"Una obra de arte, un personaje carismático sobre fondo blanco."
+  }
+
+]

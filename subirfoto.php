@@ -10,7 +10,7 @@ require_once 'config.inc';
 
  <main>
 
-   <form action='formularioFoto.php?id=<?php echo $_GET['id']; ?>' id=formFoto name="formFoto" method="post">
+   <form action='formularioFoto.php?id=<?php echo $_GET['id']; ?>' id=formFoto name="formFoto" method="post"  enctype="multipart/form-data">
        <label for="tit">Titulo: </label><input type="tit" id="tit" name="tit" required><br>
        <label for="desc">Descripción: </label><input type="desc" id="desc" name="desc" required><br>
        <label for="alt">Texto alternativo: </label><textarea type="alt" id="alt" name="alt" minlength="10" required ></textarea><br>
@@ -67,7 +67,7 @@ require_once 'config.inc';
 
       ?>
         <br>
-     <input type="file" name="file" id="foto" accept="image/*"><br>
+     <input type="file" name="fichero" id="foto" accept="image/*"><br>
      <input type="submit" value="Crear foto "></input> <br><br>
    </form>
 
